@@ -12,7 +12,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    overflow: hidden; /* Esconde a barra de rolagem para a animação */
+    overflow-x: hidden; /* Esconde a rolagem horizontal, mas permite a vertical */
 }
 
 .container {
