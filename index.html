@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uma Surpresa Especial para Você</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="start-overlay">
+        <div class="start-box">
+            <h1>Uma surpresa para você...</h1>
+            <p>Clique no botão abaixo para começar.</p>
+            <button id="startButton">Revelar Surpresa</button>
+        </div>
+    </div>
+
+    <div class="hearts-container"></div>
+
+    <main class="container">
+        
+        <div class="mensagem">
+            <h1>Para o Amor da Minha Vida</h1>
+            <p>
+                Aqui você vai colocar a sua mensagem especial. Cada palavra aqui é para te lembrar o quanto você é incrível e o quanto eu te amo. 
+                Olhar para essas fotos me faz reviver cada momento mágico que passamos juntos.
+            </p>
+        </div>
+
+        <div class="carrossel">
+            <div class="carrossel-inner">
+                <img src="assets/IMG-20241122-WA0099.jpg" alt="A pessoa mais linda e especial que já passou pela minha!" class="active">
+                <img src="assets/IMG-20241117-WA0065.jpg" alt="Também é a pessoa mais divertida que já conheci!">
+                <img src="assets/Captura de tela 2025-06-14 160441.png" alt="E sem sombra de dúvidas, a pessoa mais forte! 🦾">
+                <img src="assets/c8d09f7f-3222-422c-a92d-aa79c06a9d92.jpg" alt="Eu sou muito grato por ter alguém tão radiante ao meu lado, preenchendo meus dias com luz!">
+                <img src="assets/2086d0c2-43cb-46fe-b54a-ba210f2b0bb9.jpg" alt="EU TE AMO MUITA COISA!!!!! OBRIGADO POR SER QUEM VOCÊ É! ❤️❤️❤️">
+            </div>
+            <button class="prev" onclick="mudarSlide(-1)">&#10094;</button>
+            <button class="next" onclick="mudarSlide(1)">&#10095;</button>
+        </div>
+
+        <p class="carrossel-legenda"></p> 
+
+        <div class="musica">
+            <p>Nossa música para embalar este momento:</p>
+            <audio id="musica-fundo" controls loop>
+                <source src="assets/Lulu Santos - Sereia.mp4" type="audio/mp3">
+                Seu navegador não suporta o elemento de áudio.
+            </audio>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>

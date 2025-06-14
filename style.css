@@ -1,0 +1,241 @@
+/* Importando uma fonte bonita do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400&display=swap');
+
+/* Estilos gerais */
+body {
+    background-color: #fce4ec; /* Um tom de rosa claro como fundo */
+    font-family: 'Poppins', sans-serif;
+    color: #444;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* Esconde a barra de rolagem para a animação */
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com um pouco de transparência */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+}
+
+/* Estilo da mensagem */
+.mensagem h1 {
+    font-family: 'Playfair Display', serif;
+    color: #c2185b; /* Rosa mais escuro */
+    font-size: 2.5em;
+}
+
+.mensagem p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* Estilo do carrossel */
+.carrossel {
+    position: relative;
+    margin: 20px auto;
+    max-width: 500px;
+    overflow: hidden;
+    border-radius: 10px;
+    height: 350px;
+    background-color: #e8e8e8; /* Cor de fundo caso a imagem demore a carregar */
+}
+
+.carrossel-inner {
+    display: flex;
+    height: 100%; /* Garante que o contêiner interno ocupe a altura toda */
+    transition: transform 0.5s ease-in-out;
+}
+
+.carrossel-inner img {
+    width: 100%;
+    height: 100%; /* A imagem também deve ocupar a altura toda */
+    flex-shrink: 0;
+    display: none;
+    object-fit: cover;
+}
+
+.carrossel-inner img.active {
+    display: block;
+}
+
+.carrossel .prev, .carrossel .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.carrossel .prev {
+    left: 10px;
+}
+
+.carrossel .next {
+    right: 10px;
+}
+
+/* Estilo para a nova legenda do carrossel */
+.carrossel-legenda {
+    color: #5d4037; /* Um tom de marrom escuro, combina com o rosa */
+    font-style: italic;
+    margin-top: 15px; /* Espaço entre o carrossel e a legenda */
+    padding: 0 10px;
+    font-size: 1em;
+    min-height: 1.2em; /* Garante uma altura mínima para não 'pular' o layout */
+    transition: all 0.5s ease; /* Adiciona uma transição suave */
+}
+
+/* Estilo da música */
+.musica {
+    margin-top: 20px;
+}
+
+audio {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* ANIMAÇÃO DE CORAÇÕES */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Garante que não atrapalhe os cliques */
+    z-index: 0;
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ff4081; /* Cor do coração */
+    transform: rotate(-45deg);
+    animation: fall 10s linear infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ff4081;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 10px;
+}
+
+@keyframes fall {
+    0% {
+        top: -10%;
+        opacity: 1;
+    }
+    100% {
+        top: 110%;
+        opacity: 0;
+    }
+}
+
+/* Estilos para a tela de boas-vindas (Start Overlay) */
+.start-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+    text-align: center;
+}
+
+.start-box {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.start-box h1 {
+    font-family: 'Playfair Display', serif;
+    color: #c2185b;
+}
+
+.start-box p {
+    color: #555;
+    margin-bottom: 25px;
+}
+
+#startButton {
+    background-color: #c2185b;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#startButton:hover {
+    background-color: #ad1457;
+}
+
+/* Classe para esconder a tela de boas-vindas */
+.start-overlay.hidden {
+    opacity: 0;
+    pointer-events: none; /* Impede cliques após o fade out */
+}
+
+/* RESPONSIVIDADE PARA CELULAR (VERSÃO APRIMORADA) */
+@media (max-width: 768px) {
+    body {
+        /* Reduz o espaçamento nas laterais da tela */
+        padding: 10px;
+    }
+
+    .container {
+        padding: 20px 15px; /* Ajusta o preenchimento interno */
+    }
+
+    .mensagem h1 {
+        font-size: 1.8em; /* Fonte do título um pouco menor */
+    }
+
+    .mensagem p {
+        font-size: 0.95em; /* Fonte do texto um pouco menor */
+    }
+    
+    .carrossel {
+        /* Altura menor para o carrossel, ideal para telas verticais */
+        height: 280px; 
+    }
+}
